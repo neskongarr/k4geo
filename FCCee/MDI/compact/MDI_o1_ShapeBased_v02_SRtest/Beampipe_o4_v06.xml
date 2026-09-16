@@ -71,18 +71,40 @@
 
 </detector>
 
-<!-- 2020.04.08 : Synch Radiation mask (symmetyric in phi for the while) -->
+<!-- 2026.08.30 : Synch Radiation mask -->
 
 <comment>Synch Radiation mask inside the beam-pipe, at z = 2.3 m </comment>
 <detector name="SynchRadMask" type="DD4hep_Mask_o1_v01" insideTrackingVolume="true" vis="TantalumVis" >
-        <parameter crossingangle="CrossingAngle" />
+    <parameter crossingangle="CrossingAngle" />
+    
+    <!-- RIGHT MASK (side="1") -->
+    <section type="UpstreamTrapezoid" 
+             side="1"
+             extra_thickness="SynchRadMaskExtraThick"
+             start="-(MiddleOfSRMask_z + SynchRadMaskBaseLength / 2)" 
+             end="-(MiddleOfSRMask_z - SynchRadMaskBaseLength / 2)" 
+             rMin1="SeparatedBeamPipe_rmax" 
+             rMax1="SynchRadMaskTopLength / 2" 
+             rMin2="SeparatedBeamPipe_rmax - SynchRadMaskSize1" 
+             rMax2="SynchRadMaskSize1 / 2" 
+             material="Tungsten"      
+             name="SRmask_Right" 
+             epsilon="mask_epsilon" />
 
-           <section type="Upstream" start="MiddleOfSRMask_z -3*cm" end="MiddleOfSRMask_z -1*cm" rMin1="SeparatedBeamPipe_rmax +1*mm + mask_epsilon" rMax1="SeparatedBeamPipe_rmax+1*mm +2*mask_epsilon" rMin2="SeparatedBeamPipe_rmax +0.01*mm -SynchRadMaskSize + mask_epsilon" rMax2="SeparatedBeamPipe_rmax+1*mm +2* mask_epsilon" material="Tungsten"      name="UpStreamBeamPipe_SRmask_1" />
 
-           <section type="Upstream" start="MiddleOfSRMask_z -1*cm" end="MiddleOfSRMask_z +1*cm" rMin1="SeparatedBeamPipe_rmax +0.01*mm -SynchRadMaskSize + mask_epsilon" rMax1="SeparatedBeamPipe_rmax+1*mm +2*mask_epsilon " rMin2="SeparatedBeamPipe_rmax +0.01*mm -SynchRadMaskSize + mask_epsilon" rMax2="SeparatedBeamPipe_rmax+1*mm + 2*mask_epsilon" material="Tungsten"    name="UpStreamBeamPipe_SRmask_2" />
-
-           <section type="Upstream" start="MiddleOfSRMask_z +1*cm" end="MiddleOfSRMask_z +3*cm" rMin1="SeparatedBeamPipe_rmax +0.01*mm -SynchRadMaskSize +mask_epsilon" rMax1="SeparatedBeamPipe_rmax+1*mm + 2*mask_epsilon" rMin2="SeparatedBeamPipe_rmax +1*mm + mask_epsilon" rMax2="SeparatedBeamPipe_rmax+1*mm +2*mask_epsilon" material="Tungsten"      name="UpStreamBeamPipe_SRmask_3" />
-
+    <!-- LEFT MASK (side="-1") -->
+    <section type="UpstreamTrapezoid" 
+             side="-1"
+             extra_thickness="SynchRadMaskExtraThick"
+             start="-(MiddleOfSRMask_z + SynchRadMaskBaseLength / 2)" 
+             end="-(MiddleOfSRMask_z - SynchRadMaskBaseLength / 2)" 
+             rMin1="SeparatedBeamPipe_rmax" 
+             rMax1="SynchRadMaskTopLength / 2" 
+             rMin2="SeparatedBeamPipe_rmax - SynchRadMaskSize2" 
+             rMax2="SynchRadMaskSize2 / 2" 
+             material="Tungsten"      
+             name="SRmask_Left"
+             epsilon="mask_epsilon" />
 </detector>
 
 

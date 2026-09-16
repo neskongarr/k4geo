@@ -237,10 +237,14 @@
         <constant name="BeamPipe_end" value="12500*mm"/>
 	-->
 
-	<!-- Mike Sullivan's Synch Rad mask -->
+	<!-- Nestor Kontaxakis' modification to Mike Sullivan's SRMask -->
         <constant name="MiddleOfSRMask_z" value="2.3*m" />
-        <constant name="SynchRadMaskSize" value="7.5*mm" />
-        <constant name="mask_epsilon" value="0.001*mm" />
+        <constant name="SynchRadMaskSize1" value="8.*mm" />       <!-- mask tip is at 7 mm from the beamline -->
+        <constant name="SynchRadMaskSize2" value="8.*mm" />       <!-- mask tip is at 7 mm from the beamline -->
+        <constant name="SynchRadMaskBaseLength" value="30.*mm" /> <!-- z longitude of the mask alone beamline -->
+        <constant name="SynchRadMaskTopLength" value="10.*mm" />
+        <constant name="SynchRadMaskExtraThick" value="5.*mm" />   <!-- Additional tolerance for correct boolean subtraction -->
+        <constant name="mask_epsilon" value="0.01*mm" />
 
         <!-- compensating and screening solenoids -->
 	<!-- check if unused
