@@ -73,6 +73,7 @@ file(GLOB sources
   ./FCalTB/setup/*.cpp
   ./plugins/LinearSortingPolicy.cpp
   ./detector/PID/ARC_geo_o1_v01.cpp
+  ./FCCee/MDI/src/Mask_o1_v02_geo.cpp
   )
 
 if(${DD4hep_VERSION} VERSION_LESS 1.29)
@@ -110,6 +111,7 @@ add_dd4hep_plugin(${PackageName}G4 SHARED ${G4sources})
 add_library(lcgeo ALIAS k4geo)
 
 target_include_directories(${PackageName}   PRIVATE ${PROJECT_SOURCE_DIR}/detector/include )
+target_include_directories(${PackageName}   PRIVATE ${PROJECT_SOURCE_DIR}/FCCee/MDI/include )
 target_include_directories(${PackageName}G4 PRIVATE ${PROJECT_SOURCE_DIR}/detector/include )
 
 target_include_directories(${PackageName}   PRIVATE ${PROJECT_SOURCE_DIR}/detector/calorimeter/dual-readout/include )
