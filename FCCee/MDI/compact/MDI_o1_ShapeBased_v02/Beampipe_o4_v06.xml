@@ -69,10 +69,9 @@
     </envelope>
     <parameter crossingangle="CrossingAngle" />
     
-    <!-- RIGHT MASK (side="1")(face="1") -->
+<!-- RIGHT MASK , +z (side="1"),(face="1") -->
     <section type="UpstreamTrapezoid" 
-             face ="1"
-             side="1"
+             side="1" face ="1"
              extra_thickness="SynchRadMaskExtraThick"
              start="-(MiddleOfSRMask_z + SynchRadMaskBaseLength / 2)" 
              end="-(MiddleOfSRMask_z - SynchRadMaskBaseLength / 2)" 
@@ -82,28 +81,13 @@
              rMax2="SynchRadMaskSize1 / 2" 
              material="Tungsten"      
              name="SRmask_Right" 
-             epsilon="mask_epsilon" />
+             epsilon="mask_epsilon" >
+        <mother name="tube_UpStreamBeamPipe_1_0" center_z="(6000.0*mm + SeparatedBeamPipe_z + 3.0*mm)/2 - (SeparatedBeamPipe_rmax + 1.0*mm)/2" />    
+    </section>
 
-
-    <!-- LEFT MASK (side="-1")(face="1") -->
-    <section type="UpstreamTrapezoid"      
-             face ="1"
-             side="-1"
-             extra_thickness="SynchRadMaskExtraThick"
-             start="-(MiddleOfSRMask_z + SynchRadMaskBaseLength / 2)" 
-             end="-(MiddleOfSRMask_z - SynchRadMaskBaseLength / 2)" 
-             rMin1="SeparatedBeamPipe_rmax" 
-             rMax1="SynchRadMaskTopLength / 2" 
-             rMin2="SeparatedBeamPipe_rmax - SynchRadMaskSize2" 
-             rMax2="SynchRadMaskSize2 / 2" 
-             material="Tungsten"      
-             name="SRmask_Left"
-             epsilon="mask_epsilon" />
-
-        <!-- RIGHT MASK (side="1")(face="-1") -->
+    <!-- RIGHT MASK , -z (side="1"),(face="-1") -->
     <section type="UpstreamTrapezoid" 
-             face ="-1"
-             side="1"
+             side="1" face ="-1"
              extra_thickness="SynchRadMaskExtraThick"
              start="-(MiddleOfSRMask_z + SynchRadMaskBaseLength / 2)" 
              end="-(MiddleOfSRMask_z - SynchRadMaskBaseLength / 2)" 
@@ -113,13 +97,13 @@
              rMax2="SynchRadMaskSize1 / 2" 
              material="Tungsten"      
              name="SRmask_Right" 
-             epsilon="mask_epsilon" />
+             epsilon="mask_epsilon" >
+        <mother name="tube_UpStreamBeamPipe_1_1" center_z="(6000.0*mm + SeparatedBeamPipe_z + 3.0*mm)/2 - (SeparatedBeamPipe_rmax + 1.0*mm)/2" />
+    </section>
 
-
-    <!-- LEFT MASK (side="-1")(face="-1") -->
+    <!-- LEFT MASK (side="-1"), (face="1") -->
     <section type="UpstreamTrapezoid" 
-             side="-1"
-             face ="-1"
+             side="-1" face= "1"
              extra_thickness="SynchRadMaskExtraThick"
              start="-(MiddleOfSRMask_z + SynchRadMaskBaseLength / 2)" 
              end="-(MiddleOfSRMask_z - SynchRadMaskBaseLength / 2)" 
@@ -129,8 +113,26 @@
              rMax2="SynchRadMaskSize2 / 2" 
              material="Tungsten"      
              name="SRmask_Left"
-             epsilon="mask_epsilon" />
-</detector>
+             epsilon="mask_epsilon" >
+        <mother name="tube_UpStreamBeamPipe_1_0" center_z="(6000.0*mm + SeparatedBeamPipe_z + 3.0*mm)/2 - (SeparatedBeamPipe_rmax + 1.0*mm)/2" />    
+    </section>
+             
+    <!-- LEFT MASK (side="-1"), (face="-1") -->
+    <section type="UpstreamTrapezoid" 
+             side="-1" face= "-1"
+             extra_thickness="SynchRadMaskExtraThick"
+             start="-(MiddleOfSRMask_z + SynchRadMaskBaseLength / 2)" 
+             end="-(MiddleOfSRMask_z - SynchRadMaskBaseLength / 2)" 
+             rMin1="SeparatedBeamPipe_rmax" 
+             rMax1="SynchRadMaskTopLength / 2" 
+             rMin2="SeparatedBeamPipe_rmax - SynchRadMaskSize2" 
+             rMax2="SynchRadMaskSize2 / 2" 
+             material="Tungsten"      
+             name="SRmask_Left"
+             epsilon="mask_epsilon" >
+        <mother name="tube_UpStreamBeamPipe_1_1" center_z="(6000.0*mm + SeparatedBeamPipe_z + 3.0*mm)/2 - (SeparatedBeamPipe_rmax + 1.0*mm)/2" />
+    </section>
+    </detector>
 
 <comment>Full Cone Tungsten Shield</comment>
 <detector name="BeamPipeShield" type="DD4hep_Mask_o1_v01" insideTrackingVolume="true" vis="TantalumVis" >
