@@ -85,6 +85,7 @@ static Ref_t create_detector(Detector& description,
     const auto& dets = description.detectors(); // look up host detector name
     auto it = dets.find(hostName);
     if ( it == dets.end() ) {                   // detector name is not registered in the detector description yet
+      std::string known;
       for (const auto& d : dets) known += " " + d.first;
       dd4hep::except("MDI_Mask",
                      "+++ %s: <nest_in detector=\"%s\"/> : no such detector has been built "
