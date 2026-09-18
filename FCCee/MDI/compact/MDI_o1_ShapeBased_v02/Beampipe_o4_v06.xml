@@ -64,10 +64,14 @@
 
 <comment>Synch Radiation mask inside the beam-pipe, at z = 2.3 m </comment>
 <detector name="SynchRadMask" type="k4geo_Beampipe_o1_v01" insideTrackingVolume="true" vis="TantalumVis" >
+    <envelope vis="BlueVis">
+        <shape type="Assembly"/>
+    </envelope>
     <parameter crossingangle="CrossingAngle" />
     
-    <!-- RIGHT MASK (side="1") -->
+    <!-- RIGHT MASK (side="1")(face="1") -->
     <section type="UpstreamTrapezoid" 
+             face ="1"
              side="1"
              extra_thickness="SynchRadMaskExtraThick"
              start="-(MiddleOfSRMask_z + SynchRadMaskBaseLength / 2)" 
@@ -81,9 +85,41 @@
              epsilon="mask_epsilon" />
 
 
-    <!-- LEFT MASK (side="-1") -->
+    <!-- LEFT MASK (side="-1")(face="1") -->
+    <section type="UpstreamTrapezoid"      
+             face ="1"
+             side="-1"
+             extra_thickness="SynchRadMaskExtraThick"
+             start="-(MiddleOfSRMask_z + SynchRadMaskBaseLength / 2)" 
+             end="-(MiddleOfSRMask_z - SynchRadMaskBaseLength / 2)" 
+             rMin1="SeparatedBeamPipe_rmax" 
+             rMax1="SynchRadMaskTopLength / 2" 
+             rMin2="SeparatedBeamPipe_rmax - SynchRadMaskSize2" 
+             rMax2="SynchRadMaskSize2 / 2" 
+             material="Tungsten"      
+             name="SRmask_Left"
+             epsilon="mask_epsilon" />
+
+        <!-- RIGHT MASK (side="1")(face="-1") -->
+    <section type="UpstreamTrapezoid" 
+             face ="-1"
+             side="1"
+             extra_thickness="SynchRadMaskExtraThick"
+             start="-(MiddleOfSRMask_z + SynchRadMaskBaseLength / 2)" 
+             end="-(MiddleOfSRMask_z - SynchRadMaskBaseLength / 2)" 
+             rMin1="SeparatedBeamPipe_rmax" 
+             rMax1="SynchRadMaskTopLength / 2" 
+             rMin2="SeparatedBeamPipe_rmax - SynchRadMaskSize1" 
+             rMax2="SynchRadMaskSize1 / 2" 
+             material="Tungsten"      
+             name="SRmask_Right" 
+             epsilon="mask_epsilon" />
+
+
+    <!-- LEFT MASK (side="-1")(face="-1") -->
     <section type="UpstreamTrapezoid" 
              side="-1"
+             face ="-1"
              extra_thickness="SynchRadMaskExtraThick"
              start="-(MiddleOfSRMask_z + SynchRadMaskBaseLength / 2)" 
              end="-(MiddleOfSRMask_z - SynchRadMaskBaseLength / 2)" 
