@@ -67,7 +67,7 @@
      that geometrically contains them. This avoids overlap warnings. Only the host *detector* is named; the
      mother volume and the relative transform are resolved geometrically, and both
      crossing-angle branches are handled automatically. -->
-<detector name="SynchRadMask" type="k4geo_Beampipe_o1_v01" insideTrackingVolume="true" vis="TantalumVis" >
+<detector name="SynchRadMask" type="MDI_Mask_o1_v02" insideTrackingVolume="true" vis="TantalumVis" >
     <parameter crossingangle="CrossingAngle" />
     <nest_in detector="BeamPipe"/>
     
