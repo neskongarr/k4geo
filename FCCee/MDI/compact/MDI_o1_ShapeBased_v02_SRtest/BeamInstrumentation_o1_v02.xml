@@ -56,47 +56,67 @@
                      rMax1="cryo_tungsten_rmax1"  rMax2="cryo_tungsten_rmax2"
                      material="W"  name="tungsten" />
 
-	    <section type="PunchedCenter"        start="cryo_min_z" end="cryo_max_z"
+	    <section type="PunchedCenter"        start="2400*mm" end="cryo_max_z"
                      rMin1="cryo_filler_rmin"      rMin2="cryo_filler_rmin"
                      rMax1="cryo_filler_rmax1" rMax2="cryo_filler_rmax2"
                      material="Al"     name="cryo_infill"/>   
-	    
-	    <section type="Upstream"    start="2400*mm"    end="cryo_max_z"
+
+	    <section type="UpDnstream"    start="2400*mm"    end="2750*mm"
+                     rMin1="cryo_helium_ffq_rmin"  rMin2="cryo_helium_ffq_rmin"
+                     rMax1="cryo_helium_ffq_rmax"  rMax2="cryo_helium_ffq_rmax"
+                     material="He"  name="helium_ffq_updn" />
+
+	    <section type="Upstream"    start="2750*mm"    end="cryo_max_z"
                      rMin1="cryo_helium_ffq_rmin"  rMin2="cryo_helium_ffq_rmin"
                      rMax1="cryo_helium_ffq_rmax"  rMax2="cryo_helium_ffq_rmax"
                      material="He"  name="helium_ffq_up" />
-	    
-	    <section type="Dnstream"    start="2400*mm"    end="cryo_max_z"
+
+            <section type="Dnstream"    start="2750*mm"    end="cryo_max_z"
                      rMin1="cryo_helium_ffq_rmin"  rMin2="cryo_helium_ffq_rmin"
                      rMax1="cryo_helium_ffq_rmax"  rMax2="cryo_helium_ffq_rmax"
                      material="He"  name="helium_ffq_dn" />
 
-	    <section type="Upstream"    start="1500*mm"    end="cryo_max_z"
+	    <section type="UpDnstream"    start="1500*mm"    end="1850*mm"
+                     rMin1="cryo_support_ffq_rmin"  rMin2="cryo_support_ffq_rmin"
+                     rMax1="cryo_support_ffq_rmax"  rMax2="cryo_support_ffq_rmax"
+                     material="Steel235"  name="support_ffq_updn" />
+
+	    <section type="Upstream"    start="1850*mm"    end="cryo_max_z"
                      rMin1="cryo_support_ffq_rmin"  rMin2="cryo_support_ffq_rmin"
                      rMax1="cryo_support_ffq_rmax"  rMax2="cryo_support_ffq_rmax"
                      material="Steel235"  name="support_ffq_up" />
-	    
-            <section type="Dnstream"    start="1500*mm"    end="cryo_max_z"
+
+            <section type="Dnstream"    start="1850*mm"    end="cryo_max_z"
                      rMin1="cryo_support_ffq_rmin"  rMin2="cryo_support_ffq_rmin"
                      rMax1="cryo_support_ffq_rmax"  rMax2="cryo_support_ffq_rmax"
                      material="Steel235"  name="support_ffq_dn" />
+	    
+	    <section type="UpDnstream"    start="1500*mm"    end="1850*mm"
+                     rMin1="cryo_vacuum_ffq_rmin"  rMin2="cryo_vacuum_ffq_rmin"
+                     rMax1="cryo_vacuum_ffq_rmax"  rMax2="cryo_vacuum_ffq_rmax"
+                     material="Vacuum"  name="vacuum_ffq_updn" />
 
-	    <section type="Upstream"    start="1500*mm"    end="cryo_max_z"
+	    <section type="Upstream"    start="1850*mm"    end="cryo_max_z"
                      rMin1="cryo_vacuum_ffq_rmin"  rMin2="cryo_vacuum_ffq_rmin"
                      rMax1="cryo_vacuum_ffq_rmax"  rMax2="cryo_vacuum_ffq_rmax"
                      material="Vacuum"  name="vacuum_ffq_up" />
 
-            <section type="Dnstream"    start="1500*mm"    end="cryo_max_z"
+            <section type="Dnstream"    start="1850*mm"    end="cryo_max_z"
                      rMin1="cryo_vacuum_ffq_rmin"  rMin2="cryo_vacuum_ffq_rmin"
                      rMax1="cryo_vacuum_ffq_rmax"  rMax2="cryo_vacuum_ffq_rmax"
                      material="Vacuum"  name="vacuum_ffq_dn" />
 
-	    <section type="Upstream"    start="1500*mm"    end="cryo_max_z"
+	    <section type="UpDnstream"    start="1500*mm"    end="1850*mm"
+                     rMin1="cryo_vessel_ffq_rmin"  rMin2="cryo_vessel_ffq_rmin"
+                     rMax1="cryo_vessel_ffq_rmax"  rMax2="cryo_vessel_ffq_rmax"
+                     material="Steel235"  name="vessel_ffq_updn" />
+
+	    <section type="Upstream"    start="1850*mm"    end="cryo_max_z"
                      rMin1="cryo_vessel_ffq_rmin"  rMin2="cryo_vessel_ffq_rmin"
                      rMax1="cryo_vessel_ffq_rmax"  rMax2="cryo_vessel_ffq_rmax"
                      material="Steel235"  name="vessel_ffq_up" />
 
-            <section type="Dnstream"    start="1500*mm"    end="cryo_max_z"
+            <section type="Dnstream"    start="1850*mm"    end="cryo_max_z"
                      rMin1="cryo_vessel_ffq_rmin"  rMin2="cryo_vessel_ffq_rmin"
                      rMax1="cryo_vessel_ffq_rmax"  rMax2="cryo_vessel_ffq_rmax"
                      material="Steel235"  name="vessel_ffq_dn" />
@@ -110,12 +130,12 @@
                      rMin1="cryo_tungsten_ffq_rmin"  rMin2="cryo_tungsten_ffq_rmin"
                      rMax1="cryo_tungsten_ffq_rmax"  rMax2="cryo_tungsten_ffq_rmax"
                      material="W"  name="tungsten_ffq_dn" />
-	    
-	    <section type="PunchedCenter"        start="cryo_min_z" end="2400*mm"
+
+	    <!-- here -->
+	    <section type="PunchedCenter"        start="cryo_min_z" end="2400*mm-0.9*mm"
                      rMin1="cryo_filler_ffq_rmin"      rMin2="cryo_filler_ffq_rmin"
                      rMax1="cryo_filler_ffq_rmax1" rMax2="cryo_filler_ffq_rmax2"
                      material="Al"     name="cryo_infill_ffq"/>  
-
 
 	    <section type="Center"    start="cryo_min_z"    end="2250*mm"
                      rMin1="nose_vacuum_vessel_2_rmin1"  rMin2="nose_vacuum_vessel_2_rmin2"

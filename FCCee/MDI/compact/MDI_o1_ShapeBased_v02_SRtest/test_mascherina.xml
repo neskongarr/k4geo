@@ -21,21 +21,21 @@
 	<parent name="world"/>
 	<gdmlFile ref="newSRmasks.gdml" physvol="ellipticalMask_upstream_pv_R"/>
 	<position x="-1.95015*cm" y="0*cm" z="130*cm"/>
-	<rotation x="0*degree" y="-0.859437*degree" z="0*degree"/>
+	<rotation x="0*degree" y="-0.015*rad" z="0*degree"/>
       </detector>
 
       <detector name="EllipticalMask_Cu_R" type="DD4hep_GdmlDetector" vis="SRMasksVis">
         <parent name="world"/>
         <gdmlFile ref="newSRmasks.gdml" physvol="ellipticalMask_Cu_upstream_pv_R"/>
         <position x="-1.95015*cm" y="0*cm" z="130*cm"/>
-        <rotation x="0*degree" y="-0.859437*degree" z="0*degree"/>
+        <rotation x="0*degree" y="-0.015*rad" z="0*degree"/>
       </detector>
 
       <detector name="EllipticalMask_Vacuum_R" type="DD4hep_GdmlDetector" vis="SRMasksVis">
         <parent name="world"/>
         <gdmlFile ref="newSRmasks.gdml" physvol="ellipticalMask_Vacuum_upstream_pv_R"/>
 	<position x="-1.95015*cm" y="0*cm" z="130*cm"/>
-	<rotation x="0*degree" y="-0.859437*degree" z="0*degree"/>
+	<rotation x="0*degree" y="-0.015*rad" z="0*degree"/>
       </detector>
 
 
@@ -43,21 +43,21 @@
         <parent name="world"/>
         <gdmlFile ref="newSRmasks.gdml" physvol="ellipticalMask_upstream_pv_L"/>
         <position x="-1.95015*cm" y="0*cm" z="-130*cm"/>
-        <rotation x="0*degree" y="0.859437*degree" z="0*degree"/>
+        <rotation x="0*degree" y="0.015*rad" z="0*degree"/>
       </detector>
 
       <detector name="EllipticalMask_Cu_L" type="DD4hep_GdmlDetector" vis="SRMasksVis">
         <parent name="world"/>
         <gdmlFile ref="newSRmasks.gdml" physvol="ellipticalMask_Cu_upstream_pv_L"/>
 	<position x="-1.95015*cm" y="0*cm" z="-130*cm"/>
-	<rotation x="0*degree" y="0.859437*degree" z="0*degree"/>
+	<rotation x="0*degree" y="0.015*rad" z="0*degree"/>
       </detector>
 
       <detector name="EllipticalMask_Vacuum_L" type="DD4hep_GdmlDetector" vis="SRMasksVis">
 	<parent name="world"/>
         <gdmlFile ref="newSRmasks.gdml" physvol="ellipticalMask_Vacuum_upstream_pv_L"/>
         <position x="-1.95015*cm" y="0*cm" z="-130*cm"/>
-	<rotation x="0*degree" y="0.859437*degree" z="0*degree"/>
+	<rotation x="0*degree" y="0.015*rad" z="0*degree"/>
       </detector>
       
     </detectors>
