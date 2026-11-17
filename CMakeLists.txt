@@ -12,7 +12,7 @@ project(${PackageName} LANGUAGES CXX)
 
 # project version
 SET( ${PackageName}_VERSION_MAJOR 0 )
-SET( ${PackageName}_VERSION_MINOR 26 )
+SET( ${PackageName}_VERSION_MINOR 27 )
 SET( ${PackageName}_VERSION_PATCH 0 )
 
 SET( ${PackageName}_VERSION "${${PackageName}_VERSION_MAJOR}.${${PackageName}_VERSION_MINOR}" )
@@ -22,10 +22,11 @@ set(CMAKE_MODULE_PATH  ${CMAKE_MODULE_PATH}  ${PROJECT_SOURCE_DIR}/cmake )
 set(LIBRARY_OUTPUT_PATH    ${PROJECT_BINARY_DIR}/lib)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
-include(cmake/Key4hepConfig.cmake)
-
 include(GNUInstallDirs)
 set(CMAKE_INSTALL_LIBDIR lib)
+
+include(cmake/Key4hepConfig.cmake)
+
 set(CMAKE_INSTALL_CMAKEDIR ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
 
 #------------- set the default installation directory to be the source directory
@@ -44,6 +45,7 @@ ENDIF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 option(BUILD_TESTING "Enable and build tests" ON)
 option(INSTALL_COMPACT_FILES "Copy compact files to install area" OFF)
 option(INSTALL_BEAMPIPE_STL_FILES "Download CAD files for building the detailed beampipe" OFF)
+option(INSTALL_VERTEX_STL_FILES "Download CAD files for IDEA vertex detector" OFF)
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -101,6 +103,8 @@ file(GLOB G4sources
   ./plugins/DRTubesSDAction.cpp
   ./plugins/SCEPCal_MainSDAction.cpp
   ./plugins/SCEPCal_TimingSDAction.cpp
+  ./plugins/GrainitaCaloSDAction.h
+  ./plugins/GrainitaCaloSDAction.cpp
 )
 
 if(DD4HEP_USE_PYROOT)
@@ -157,6 +161,9 @@ FILE(GLOB hfiles "ILD/include/*.h")
 INSTALL(FILES ${hfiles}
   DESTINATION include/${PackageName}
   )
+
+# install dd4hep2root
+INSTALL(PROGRAMS utils/dd4hep2root.py DESTINATION bin RENAME dd4hep2root)
 
 #--- install compact files------------------------------
 if(INSTALL_COMPACT_FILES)
@@ -227,4 +234,47 @@ if(INSTALL_BEAMPIPE_STL_FILES)
     file(MAKE_DIRECTORY share/k4geo/FCCee)
     INSTALL(DIRECTORY ${OUTPUT_DIR} DESTINATION share/k4geo/FCCee/MDI/compact/stl_files )
 
+endif()
+
+if(INSTALL_VERTEX_STL_FILES)
+
+    file(MAKE_DIRECTORY share/k4geo/FCCee)
+
+    set(STL_FILES
+          "VertexCoolingCones_o1_v03.stl"
+          "VertexSupport_CarbonFiber_o1_v03.stl"
+          "VertexSupport_PEEK_o1_v03.stl"
+        )
+    # Set main FCC url
+    set(FCC_URL "https://fccsw.web.cern.ch/fccsw/filesForSimDigiReco")
+    set(STL_PATH "IDEA/IDEA_o1_v03/STL_FILES")
+
+    # Set the output directory where the file will be placed
+    set(OUTPUT_DIR "${PROJECT_SOURCE_DIR}/FCCee/IDEA/compact/IDEA_o1_v03/")
+
+    foreach(STL_FILE ${STL_FILES})
+        set(FULL_URL "${FCC_URL}/${STL_PATH}/${STL_FILE}")
+        message(DEBUG "Downloading file ${FULL_URL}")
+        set(OUTPUT_FILE "${OUTPUT_DIR}/${STL_FILE}")
+
+        if(EXISTS "${OUTPUT_FILE}")
+          message(STATUS "File ${STL_FILE} already exists. Skipping download.")
+        else()
+          # Download the file
+          file(DOWNLOAD ${FULL_URL} ${OUTPUT_FILE}
+            SHOW_PROGRESS
+            STATUS download_status)
+
+          list(GET download_status 0 status_code)
+          if(NOT status_code EQUAL 0)
+              list(GET download_status 1 error_message)
+              message(FATAL_ERROR "Failed to download file: ${error_message}")
+          endif()
+        endif()
+
+        install(
+            FILES "${OUTPUT_DIR}/${STL_FILE}"
+            DESTINATION share/k4geo/FCCee/IDEA/compact/IDEA_o1_v03/stl_files
+        )
+    endforeach()
 endif()
