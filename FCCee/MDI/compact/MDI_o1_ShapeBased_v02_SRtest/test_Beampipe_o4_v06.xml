@@ -59,12 +59,12 @@
 		      rMax1="SeparatedBeamPipe_rmax+1*mm"  rMax2="SeparatedBeamPipe_rmax+1*mm"
 		      material="Copper"      name="UpStreamBeamPipe_1"/>-->
 
-	     <section type="UpstreamClippedFront"  start="SeparatedBeamPipe_z+3.0*mm" end="129*cm"
+	     <section type="UpstreamClippedFront"  start="SeparatedBeamPipe_z+3.0*mm" end="135*cm+0.15*mm"
                       rMin1="SeparatedBeamPipe_rmax"  rMin2="SeparatedBeamPipe_rmax"
                       rMax1="SeparatedBeamPipe_rmax+1*mm"  rMax2="SeparatedBeamPipe_rmax+1*mm"
                       material="Copper"      name="UpStreamBeamPipe_1a"/>
 
-	     <section type="Upstream" start="131*cm+0.15*mm" end="6000.0*mm"
+	     <section type="Upstream" start="137*cm+0.155*mm" end="6000.0*mm"
 		      rMin1="SeparatedBeamPipe_rmax"  rMin2="SeparatedBeamPipe_rmax"
 		      rMax1="SeparatedBeamPipe_rmax+1*mm"  rMax2="SeparatedBeamPipe_rmax+1*mm"
 		      material="Copper"      name="UpStreamBeamPipe_1b"/>

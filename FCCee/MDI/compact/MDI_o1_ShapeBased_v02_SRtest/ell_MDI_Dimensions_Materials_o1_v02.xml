@@ -227,7 +227,7 @@
         <constant name="SeparatedBeamPipe_rmax"  value="15*mm"/>
         <constant name="SeparatedBeamPipe_z" value="1190.0*mm"/>
         <constant name="BeamPipeWidthFirstCone" value="2.0*mm" />
-        <constant name="ConeBeamPipe_Rmax" value="28.9*mm" /> <!-- this is the inner length of the longer elipse axis -->
+        <constant name="ConeBeamPipe_Rmax" value="0.5*CrossingAngle * SeparatedBeamPipe_z + SeparatedBeamPipe_rmax" /> <!-- touch separated beam pipe -->
         <constant name="BeamPipeConeHalfAngle" value="(ConeBeamPipe_Rmax+BeamPipeWidthFirstCone-CentralBeamPipe_rmax) / (SeparatedBeamPipe_z-CentralBeamPipe_zmax)"/>
 
 	<!-- check if unused
@@ -244,7 +244,7 @@
         <constant name="SynchRadMaskBaseLength" value="30.*mm" /> <!-- z longitude of the mask alone beamline -->
         <constant name="SynchRadMaskTopLength" value="10.*mm" />
         <constant name="SynchRadMaskExtraThick" value="5.*mm" />   <!-- Additional tolerance for correct boolean subtraction -->
-        <constant name="mask_epsilon" value="0.01*mm" />
+        <constant name="mask_epsilon" value="0.1*mm" />
 
         <!-- compensating and screening solenoids -->
 	<!-- check if unused

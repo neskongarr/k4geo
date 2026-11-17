@@ -1,9 +1,9 @@
 <lccdd>
 
-  <include ref="MDI_Dimensions_Materials_o1_v02.xml"/>
+  <include ref="test_MDI_Dimensions_Materials_o1_v02.xml"/>
     <include ref="BeamInstrumentation_o1_v02.xml"/>
-    <include ref="Beampipe_o4_v06.xml"/>
-    
+    <include ref="test_Beampipe_o4_v06.xml"/>
+    <include ref="test_mascherina.xml"/>
     <include ref="fields_antisol_map_nonlocal.xml"/>
 
     <!-- must use one FFQuads_params_xxx.xml BEFORE FFQuads_v01.xml -->

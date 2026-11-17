@@ -44,7 +44,7 @@
     <constant name="DetID_FFQs"  value="23"/>
   </define>
 
-  <include ref="MDI_o1_ShapeBased_v02_collection.xml" />
+  <include ref="test_MDI_o1_ShapeBased_v02_collection.xml" />
 
   <include ref="fields_solenoid.xml"/>
   
